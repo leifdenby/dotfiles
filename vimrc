@@ -21,7 +21,11 @@ Plug 'othree/html5.vim'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'JulesWang/css.vim'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'gregsexton/MatchTag'
+Plug 'rstacruz/sparkup'
 
+Plug 'leifdenby/vim-spellcheck-toggle'
+Plug 'beloglazov/vim-online-thesaurus'
 
 
 call plug#end()
@@ -57,6 +61,7 @@ set autoindent     " always set autoindenting on
 set smartindent        " smart indent
 
 au FileType python,php,markdown set ts=4 sts=4 sw=4 expandtab nocindent
+au FileType python,php,markdown set colorcolumn=80
 au FileType vim,javascript,html set ts=2 sts=2 sw=2 expandtab nocindent
 
 set nowrap         " don't wrap lines
@@ -69,8 +74,10 @@ set backspace=2
 au BufNewFile,BufRead *.html let b:delimitMate_matchpairs = "(:),[:],{:}"
 
 au FileType python,php set ts=4 sts=4 sw=4 expandtab nocindent
+au FileType python set foldmethod=indent
 au BufNewFile,BufRead *.html set ts=2 sts=2 sw=2 expandtab nocindent
 au BufNewFile,BufRead *.css set ts=2 sts=2 sw=2 expandtab nocindent
+au BufNewFile,BufRead *.f90 set ts=3 sts=3 sw=3 expandtab nocindent
 
 "au FileType htmldjango so ~/.vim/plugged/HTML-AutoCloseTag/ftplugin/html_autoclosetag.vim
 

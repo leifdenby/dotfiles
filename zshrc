@@ -40,3 +40,5 @@ export WORKON_HOME=$HOME/.virtualenvs
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+export PIP_USE_MIRRORS=1
