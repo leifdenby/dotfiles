@@ -23,6 +23,10 @@ Plug 'JulesWang/css.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'gregsexton/MatchTag'
 Plug 'rstacruz/sparkup'
+Plug 'wavded/vim-stylus'
+Plug 'majutsushi/tagbar'
+Plug 'alvan/vim-closetag'
+Plug 'pix/git-rebase-helper'
 
 Plug 'leifdenby/vim-spellcheck-toggle'
 Plug 'beloglazov/vim-online-thesaurus'
@@ -37,6 +41,9 @@ colorscheme solarized
 set laststatus=2
 set encoding=utf-8
 let g:airline_powerline_fonts = 1
+
+" Config closetag
+let g:closetag_filenames = "*.jsx"
 
 " disable Ex mode
 map Q <Nop>
@@ -63,6 +70,7 @@ set smartindent        " smart indent
 au FileType python,php,markdown set ts=4 sts=4 sw=4 expandtab nocindent
 au FileType python,php,markdown set colorcolumn=80
 au FileType vim,javascript,html set ts=2 sts=2 sw=2 expandtab nocindent
+au FileType stylus set ts=2 sts=2 sw=2 expandtab nocindent
 
 set nowrap         " don't wrap lines
 
@@ -84,3 +92,11 @@ au BufNewFile,BufRead *.f90 set ts=3 sts=3 sw=3 expandtab nocindent
 " popup navigation on code-completion
 inoremap <expr> <C-j> pumvisible() ? "\<C-N>" : "\<C-j>"
 inoremap <expr> <C-k> pumvisible() ? "\<C-P>" : "\<C-k>"
+
+" Tagbar
+nnoremap <silent> <F8> :TagbarToggle<CR>
+let g:tagbar_left=1
+
+
+" make sure vim can edit crontab
+autocmd filetype crontab setlocal nobackup nowritebackup
