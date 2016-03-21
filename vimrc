@@ -27,12 +27,23 @@ Plug 'wavded/vim-stylus'
 Plug 'majutsushi/tagbar'
 Plug 'alvan/vim-closetag'
 Plug 'pix/git-rebase-helper'
+Plug 'tpope/vim-surround'
+Plug 'majutsushi/tagbar'
+Plug 'godlygeek/tabular'
 
 Plug 'leifdenby/vim-spellcheck-toggle'
 Plug 'beloglazov/vim-online-thesaurus'
 
+Plug 'matchit.zip'
+
+" for markdown writing:
+Plug 'reedes/vim-pencil'
+
 
 call plug#end()
+
+
+
 
 set background=dark
 colorscheme solarized
@@ -41,6 +52,7 @@ colorscheme solarized
 set laststatus=2
 set encoding=utf-8
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 
 " Config closetag
 let g:closetag_filenames = "*.jsx"
@@ -86,8 +98,14 @@ au FileType python set foldmethod=indent
 au BufNewFile,BufRead *.html set ts=2 sts=2 sw=2 expandtab nocindent
 au BufNewFile,BufRead *.css set ts=2 sts=2 sw=2 expandtab nocindent
 au BufNewFile,BufRead *.f90 set ts=3 sts=3 sw=3 expandtab nocindent
+au BufNewFile,BufRead *.F90 set ts=3 sts=3 sw=3 expandtab nocindent
+
+au BufNewFile,BufRead *.md nnoremap <silent> <F6> :!make<CR><CR>
 
 "au FileType htmldjango so ~/.vim/plugged/HTML-AutoCloseTag/ftplugin/html_autoclosetag.vim
+"
+nmap <F8> :TagbarToggle<CR>
+let g:tagbar_left=1
 
 " popup navigation on code-completion
 inoremap <expr> <C-j> pumvisible() ? "\<C-N>" : "\<C-j>"
