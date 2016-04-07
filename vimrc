@@ -30,6 +30,8 @@ Plug 'pix/git-rebase-helper'
 Plug 'tpope/vim-surround'
 Plug 'majutsushi/tagbar'
 Plug 'godlygeek/tabular'
+Plug 'easymotion/vim-easymotion'
+
 
 Plug 'leifdenby/vim-spellcheck-toggle'
 Plug 'beloglazov/vim-online-thesaurus'
