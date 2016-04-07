@@ -104,7 +104,7 @@ inoremap <expr> <C-j> pumvisible() ? "\<C-N>" : "\<C-j>"
 inoremap <expr> <C-k> pumvisible() ? "\<C-P>" : "\<C-k>"
 
 
-set nocompatible
+"set nocompatible
 
 
 au BufNewFile,BufRead *.md set filetype=markdown
@@ -113,3 +113,6 @@ augroup pencil
   autocmd!
   autocmd FileType markdown,mkd,md call pencil#init({'wrap': 'hard'})
 augroup END
+
+
+nnoremap <S-T> :OnlineThesaurusCurrentWord<CR>
