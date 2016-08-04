@@ -32,6 +32,9 @@ Plug 'majutsushi/tagbar'
 Plug 'godlygeek/tabular'
 Plug 'easymotion/vim-easymotion'
 
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'junegunn/goyo.vim'
 
 Plug 'leifdenby/vim-spellcheck-toggle'
 Plug 'beloglazov/vim-online-thesaurus'
@@ -101,8 +104,14 @@ au BufNewFile,BufRead *.html set ts=2 sts=2 sw=2 expandtab nocindent
 au BufNewFile,BufRead *.css set ts=2 sts=2 sw=2 expandtab nocindent
 au BufNewFile,BufRead *.f90 set ts=3 sts=3 sw=3 expandtab nocindent
 au BufNewFile,BufRead *.F90 set ts=3 sts=3 sw=3 expandtab nocindent
+au BufNewFile,BufRead *.yaml set ts=2 sts=2 sw=2 expandtab nocindent
 
 au BufNewFile,BufRead *.md nnoremap <silent> <F6> :!make<CR><CR>
+
+augroup pandoc_syntax
+  au! BufNewFile,BufFilePRe,BufRead *.md set filetype=markdown.pandoc
+  au! BufNewFile,BufFilePRe,BufRead *.md set foldlevel=1
+augroup END
 
 "au FileType htmldjango so ~/.vim/plugged/HTML-AutoCloseTag/ftplugin/html_autoclosetag.vim
 "
