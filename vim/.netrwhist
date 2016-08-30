@@ -1,9 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/Users/leifdenby/Desktop/joinagora.com/agora'
-let g:netrw_dirhist_2='/Users/leifdenby/Desktop/joinagora.com/agora/landing_page'
-let g:netrw_dirhist_3='/Users/leifdenby/Desktop/joinagora.com/agora/landing_page/static'
-let g:netrw_dirhist_4='/Users/leifdenby/Desktop/joinagora.com/agora/landing_page/static/landing_page'
-let g:netrw_dirhist_5='/Users/leifdenby/Desktop/joinagora.com/agora/landing_page/static/landing_page/css'
-let g:netrw_dirhist_6='/Users/leifdenby/Desktop/joinagora.com/agora/events'
-let g:netrw_dirhist_7='/Users/leifdenby/.dotfiles/.git/modules'

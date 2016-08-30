@@ -1,3 +1,6 @@
+# needed at MPI because their version of zsh sucks
+export FPATH=$LOCALPATH/share/zsh/5.2/functions
+
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 source $HOME/.zshrc-local
@@ -40,3 +43,5 @@ export WORKON_HOME=$HOME/.virtualenvs
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+export PIP_USE_MIRRORS=1
