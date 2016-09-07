@@ -1,5 +1,8 @@
+
 # needed at MPI because their version of zsh sucks
-export FPATH=$LOCALPATH/share/zsh/5.2/functions
+if [[ $(hostname -f) = mpipc*.mpi.zmaw.de ]]; then
+   export FPATH=$LOCALPATH/share/zsh/5.2/functions
+fi
 
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
@@ -34,7 +37,11 @@ alias milka="ssh -Y lcd33@milka.lsc.phy.cam.ac.uk"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git osx django virtualenvwrapper pip coding brew heroku)
+
+if [[ -z $plugins ]]; then
+  plugins=(git osx django virtualenvwrapper pip coding brew heroku)
+fi
+
 
 source $ZSH/oh-my-zsh.sh
 
