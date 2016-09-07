@@ -45,3 +45,6 @@ export WORKON_HOME=$HOME/.virtualenvs
 export PATH="/usr/local/heroku/bin:$PATH"
 
 export PIP_USE_MIRRORS=1
+
+# Don't use gnome's askpass ever
+unset SSH_ASKPASS
