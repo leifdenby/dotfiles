@@ -9,7 +9,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'davidhalter/jedi-vim'
 Plug 'tpope/vim-vinegar'
 "Plug 'django.vim'
-Plug 'scrooloose/syntastic'
+"Plug 'scrooloose/syntastic' replaced with ALE
 Plug 'hdima/python-syntax'
 Plug 'python_fold'
 Plug 'tpope/vim-surround'
@@ -42,6 +42,8 @@ Plug 'leifdenby/vim-spellcheck-toggle'
 Plug 'beloglazov/vim-online-thesaurus'
 
 Plug 'matchit.zip'
+
+Plug 'w0rp/ale'
 
 " for markdown writing:
 Plug 'reedes/vim-pencil'
