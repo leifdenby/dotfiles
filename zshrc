@@ -42,6 +42,10 @@ if [[ -z $plugins ]]; then
   plugins=(git osx django virtualenvwrapper pip coding brew heroku)
 fi
 
+if [[ `uname` == "Linux" ]]; then
+  alias open='xdg-open'
+fi
+
 
 source $ZSH/oh-my-zsh.sh
 
@@ -55,3 +59,9 @@ export PIP_USE_MIRRORS=1
 
 # Don't use gnome's askpass ever
 unset SSH_ASKPASS
+
+# Radio
+
+alias bbc3="mplayer http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_radio_three.m3u8"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

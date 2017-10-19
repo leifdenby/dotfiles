@@ -1,6 +1,9 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'kien/ctrlp.vim'
+"Plug 'kien/ctrlp.vim' replaced by fzf
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
 Plug 'bling/vim-airline'
 Plug 'altercation/vim-colors-solarized'
 Plug 'scrooloose/nerdcommenter'
@@ -48,9 +51,15 @@ Plug 'w0rp/ale'
 " for markdown writing:
 Plug 'reedes/vim-pencil'
 
+Plug 'blindFS/vim-taskwarrior'
+
 call plug#end()
 
 
+
+" fzf settings
+nmap ; :Buffers<CR>
+nmap <Leader>t :Files<CR>
 
 
 set background=dark
@@ -61,6 +70,9 @@ set laststatus=2
 set encoding=utf-8
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+set t_Co=256
+
+let g:ale_objcpp_clang_options = "-Wall"
 
 " Config closetag
 let g:closetag_filenames = "*.jsx"
@@ -91,6 +103,7 @@ au FileType python,php,markdown set ts=4 sts=4 sw=4 expandtab nocindent
 au FileType python,php,markdown set colorcolumn=80
 au FileType vim,javascript,html set ts=2 sts=2 sw=2 expandtab nocindent
 au FileType stylus set ts=2 sts=2 sw=2 expandtab nocindent
+au FileType cpp,c set ts=2 sts=2 sw=2 expandtab nocindent
 
 " hardcopy (print) settings: in landscape with linenumbers
 set printoptions=portrait:n,number:y
@@ -123,7 +136,7 @@ augroup END
 
 "au FileType htmldjango so ~/.vim/plugged/HTML-AutoCloseTag/ftplugin/html_autoclosetag.vim
 "
-nmap <F8> :TagbarToggle<CR>
+nmap <F7> :TagbarToggle<CR>
 let g:tagbar_left=1
 
 " popup navigation on code-completion
@@ -141,6 +154,11 @@ augroup pencil
   autocmd!
   autocmd FileType markdown,mkd,md call pencil#init({'wrap': 'hard'})
 augroup END
+
+let g:syntastic_python_checkers = []
+
+" I like new c++ features
+let g:syntastic_cpp_compiler_options = ' -std=c++0x'
 
 
 nnoremap <S-T> :OnlineThesaurusCurrentWord<CR>
