@@ -53,6 +53,9 @@ Plug 'reedes/vim-pencil'
 
 Plug 'blindFS/vim-taskwarrior'
 
+" repeating mapped commands like surround
+Plug 'tpope/vim-repeat'
+
 call plug#end()
 
 
