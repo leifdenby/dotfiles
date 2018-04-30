@@ -24,14 +24,13 @@ Plug 'othree/html5.vim'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'JulesWang/css.vim'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'tpope/vim-markdown'
 
 Plug 'gregsexton/MatchTag'
 Plug 'rstacruz/sparkup'
 Plug 'wavded/vim-stylus'
 Plug 'majutsushi/tagbar'
 Plug 'alvan/vim-closetag'
-Plug 'pix/git-rebase-helper'
+Plug 'pix/git-rebase-helper', { 'for': 'git' }
 Plug 'tpope/vim-surround'
 Plug 'majutsushi/tagbar'
 Plug 'godlygeek/tabular'
@@ -49,7 +48,9 @@ Plug 'matchit.zip'
 Plug 'w0rp/ale'
 
 " for markdown writing:
-Plug 'reedes/vim-pencil'
+Plug 'reedes/vim-pencil', { 'for': 'markdown' }
+Plug 'tpope/vim-markdown', { 'for': 'pandoc' }
+Plug 'dhruvasagar/vim-table-mode', { 'for': 'pandoc' }
 
 Plug 'blindFS/vim-taskwarrior'
 
@@ -166,4 +167,4 @@ let g:syntastic_cpp_compiler_options = ' -std=c++0x'
 
 nnoremap <S-T> :OnlineThesaurusCurrentWord<CR>
 
-autocmd filetype crontab setlocal nobackup nowritebackup
+" autocmd filetype crontab setlocal nobackup nowritebackup
