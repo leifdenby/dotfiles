@@ -36,6 +36,8 @@ Plug 'majutsushi/tagbar'
 Plug 'godlygeek/tabular'
 Plug 'easymotion/vim-easymotion'
 
+Plug 'junegunn/vim-easy-align'
+
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'junegunn/goyo.vim'
@@ -65,6 +67,11 @@ call plug#end()
 nmap ; :Buffers<CR>
 nmap <Leader>t :Files<CR>
 
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 set background=dark
 colorscheme solarized
