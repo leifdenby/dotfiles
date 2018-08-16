@@ -64,4 +64,5 @@ unset SSH_ASKPASS
 
 alias bbc3="mplayer http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_radio_three.m3u8"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# https://cs-syd.eu/posts/2015-06-21-gtd-with-taskwarrior-part-2-collection
+alias in='task add +in'
