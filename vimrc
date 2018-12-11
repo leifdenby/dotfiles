@@ -54,7 +54,7 @@ Plug 'reedes/vim-pencil', { 'for': 'markdown' }
 Plug 'tpope/vim-markdown', { 'for': 'pandoc' }
 Plug 'dhruvasagar/vim-table-mode', { 'for': 'pandoc' }
 
-Plug 'blindFS/vim-taskwarrior'
+" Plug 'blindFS/vim-taskwarrior'
 
 " repeating mapped commands like surround
 Plug 'tpope/vim-repeat'
