@@ -38,9 +38,13 @@ Plug 'easymotion/vim-easymotion'
 
 Plug 'junegunn/vim-easy-align'
 
+" for writing
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'reedes/vim-wordy', { 'for': 'pandoc' }
+
 Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim', { 'for': 'pandoc' }
 
 Plug 'leifdenby/vim-spellcheck-toggle'
 Plug 'beloglazov/vim-online-thesaurus'
@@ -66,6 +70,8 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=8
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=0
 
 call plug#end()
+
+let g:limelight_conceal_ctermfg = 240
 
 
 
