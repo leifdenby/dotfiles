@@ -9,7 +9,11 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
 Plug 'pangloss/vim-javascript'
+
 Plug 'davidhalter/jedi-vim'
+" disable jedi automatically adding `import` when I am doing `from ...` import statements
+let g:jedi#smart_auto_mappings = 0
+
 Plug 'tpope/vim-vinegar'
 "Plug 'django.vim'
 "Plug 'scrooloose/syntastic' replaced with ALE
@@ -57,6 +61,12 @@ Plug 'blindFS/vim-taskwarrior'
 " repeating mapped commands like surround
 Plug 'tpope/vim-repeat'
 
+" ensure that vim uses the correct python version
+Plug 'cjrh/vim-conda'
+let g:conda_startup_msg_suppress = 1
+
+
+
 call plug#end()
 
 
@@ -75,6 +85,11 @@ set encoding=utf-8
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 set t_Co=256
+" Enable wordcount
+let g:airline#extensions#wordcount#enabled = 1
+" Add notes to filetypes
+let g:airline#extensions#wordcount#filetypes = '\vnotes|help|markdown|rst|org|text|asciidoc|tex|mail'
+
 
 let g:ale_objcpp_clang_options = "-Wall"
 
@@ -130,6 +145,9 @@ au BufNewFile,BufRead *.css set ts=2 sts=2 sw=2 expandtab nocindent
 au BufNewFile,BufRead *.f90,*.F90 set ts=3 sts=3 sw=3 expandtab nocindent
 au BufNewFile,BufRead *.F90 set ts=3 sts=3 sw=3 expandtab nocindent
 au BufNewFile,BufRead *.yaml set ts=2 sts=2 sw=2 expandtab nocindent
+au BufNewFile,BufRead *.dot set ts=2 sts=2 sw=2 expandtab nocindent
+
+set ts=4 sts=4 sw=4
 
 au BufNewFile,BufRead *.md nnoremap <silent> <F6> :!make<CR><CR>
 
