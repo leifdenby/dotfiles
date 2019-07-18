@@ -17,7 +17,6 @@ ZSH_THEME="af-magic"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias milka="ssh -Y lcd33@milka.lsc.phy.cam.ac.uk"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -44,6 +43,7 @@ fi
 
 if [[ `uname` == "Linux" ]]; then
   alias open='xdg-open'
+  alias open='gio open'
 fi
 
 
@@ -66,3 +66,7 @@ alias bbc3="mplayer http://a.files.bbci.co.uk/media/live/manifesto/audio/simulca
 
 # https://cs-syd.eu/posts/2015-06-21-gtd-with-taskwarrior-part-2-collection
 alias in='task add +in'
+alias tadd-work="task add +@work"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
