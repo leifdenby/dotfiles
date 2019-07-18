@@ -5,12 +5,13 @@
 [user]
 	email = leif@denby.eu
 [credential]
-	helper = osxkeychain
+	helper = cache --timeout=3600
 [filter "hawser"]
 	clean = git hawser clean %f
 	smudge = git hawser smudge %f
 	required = true
 [filter "lfs"]
-	clean = git lfs clean %f
-	smudge = git lfs smudge %f
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
 	required = true

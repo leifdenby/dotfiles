@@ -40,6 +40,8 @@ Plug 'majutsushi/tagbar'
 Plug 'godlygeek/tabular'
 Plug 'easymotion/vim-easymotion'
 
+Plug 'junegunn/vim-easy-align'
+
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'junegunn/goyo.vim'
@@ -66,6 +68,11 @@ Plug 'cjrh/vim-conda'
 let g:conda_startup_msg_suppress = 1
 
 
+Plug 'nathanaelkane/vim-indent-guides'
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=8
 
 call plug#end()
 
@@ -75,6 +82,11 @@ call plug#end()
 nmap ; :Buffers<CR>
 nmap <Leader>t :Files<CR>
 
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 set background=dark
 colorscheme solarized
@@ -142,8 +154,14 @@ au FileType python,php set ts=4 sts=4 sw=4 expandtab nocindent
 au FileType python set foldmethod=indent
 au BufNewFile,BufRead *.html set ts=2 sts=2 sw=2 expandtab nocindent
 au BufNewFile,BufRead *.css set ts=2 sts=2 sw=2 expandtab nocindent
+
+
 au BufNewFile,BufRead *.f90,*.F90 set ts=3 sts=3 sw=3 expandtab nocindent
 au BufNewFile,BufRead *.F90 set ts=3 sts=3 sw=3 expandtab nocindent
+" ensure to indent do https://stackoverflow.com/a/17619568
+let fortran_do_enddo=1
+
+
 au BufNewFile,BufRead *.yaml set ts=2 sts=2 sw=2 expandtab nocindent
 au BufNewFile,BufRead *.dot set ts=2 sts=2 sw=2 expandtab nocindent
 
