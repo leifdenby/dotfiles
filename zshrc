@@ -18,7 +18,6 @@ ZSH_THEME="cobalt2"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias milka="ssh -Y lcd33@milka.lsc.phy.cam.ac.uk"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -45,6 +44,7 @@ fi
 
 if [[ `uname` == "Linux" ]]; then
   alias open='xdg-open'
+  alias open='gio open'
 fi
 
 
@@ -65,20 +65,11 @@ unset SSH_ASKPASS
 
 alias bbc3="mplayer http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_radio_three.m3u8"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# https://cs-syd.eu/posts/2015-06-21-gtd-with-taskwarrior-part-2-collection
+alias in='task add +in'
+alias tadd-work="task add +@work"
 
-PATH="/Users/leifdenby/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/Users/leifdenby/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/Users/leifdenby/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/Users/leifdenby/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/Users/leifdenby/perl5"; export PERL_MM_OPT;
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # https://cs-syd.eu/posts/2015-06-21-gtd-with-taskwarrior-part-2-collection
 alias in='task add +in'
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/leifdenby/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/leifdenby/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/leifdenby/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/leifdenby/google-cloud-sdk/completion.zsh.inc'; fi
-

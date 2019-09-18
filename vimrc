@@ -9,7 +9,11 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
 Plug 'pangloss/vim-javascript'
+
 Plug 'davidhalter/jedi-vim'
+" disable jedi automatically adding `import` when I am doing `from ...` import statements
+let g:jedi#smart_auto_mappings = 0
+
 Plug 'tpope/vim-vinegar'
 "Plug 'django.vim'
 "Plug 'scrooloose/syntastic' replaced with ALE
@@ -24,18 +28,19 @@ Plug 'othree/html5.vim'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'JulesWang/css.vim'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'tpope/vim-markdown'
 
 Plug 'gregsexton/MatchTag'
 Plug 'rstacruz/sparkup'
 Plug 'wavded/vim-stylus'
 Plug 'majutsushi/tagbar'
 Plug 'alvan/vim-closetag'
-Plug 'pix/git-rebase-helper'
+Plug 'pix/git-rebase-helper', { 'for': 'git' }
 Plug 'tpope/vim-surround'
 Plug 'majutsushi/tagbar'
 Plug 'godlygeek/tabular'
 Plug 'easymotion/vim-easymotion'
+
+Plug 'junegunn/vim-easy-align'
 
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
@@ -49,12 +54,25 @@ Plug 'matchit.zip'
 Plug 'w0rp/ale'
 
 " for markdown writing:
-Plug 'reedes/vim-pencil'
+Plug 'reedes/vim-pencil', { 'for': 'markdown' }
+Plug 'tpope/vim-markdown', { 'for': 'pandoc' }
+Plug 'dhruvasagar/vim-table-mode', { 'for': 'pandoc' }
 
 Plug 'blindFS/vim-taskwarrior'
 
 " repeating mapped commands like surround
 Plug 'tpope/vim-repeat'
+
+" ensure that vim uses the correct python version
+Plug 'cjrh/vim-conda'
+let g:conda_startup_msg_suppress = 1
+
+
+Plug 'nathanaelkane/vim-indent-guides'
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=8
 
 call plug#end()
 
@@ -64,6 +82,11 @@ call plug#end()
 nmap ; :Buffers<CR>
 nmap <Leader>t :Files<CR>
 
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 set background=dark
 colorscheme solarized
@@ -74,6 +97,11 @@ set encoding=utf-8
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 set t_Co=256
+" Enable wordcount
+let g:airline#extensions#wordcount#enabled = 1
+" Add notes to filetypes
+let g:airline#extensions#wordcount#filetypes = '\vnotes|help|markdown|rst|org|text|asciidoc|tex|mail'
+
 
 let g:ale_objcpp_clang_options = "-Wall"
 
@@ -126,9 +154,18 @@ au FileType python,php set ts=4 sts=4 sw=4 expandtab nocindent
 au FileType python set foldmethod=indent
 au BufNewFile,BufRead *.html set ts=2 sts=2 sw=2 expandtab nocindent
 au BufNewFile,BufRead *.css set ts=2 sts=2 sw=2 expandtab nocindent
+
+
 au BufNewFile,BufRead *.f90,*.F90 set ts=3 sts=3 sw=3 expandtab nocindent
 au BufNewFile,BufRead *.F90 set ts=3 sts=3 sw=3 expandtab nocindent
+" ensure to indent do https://stackoverflow.com/a/17619568
+let fortran_do_enddo=1
+
+
 au BufNewFile,BufRead *.yaml set ts=2 sts=2 sw=2 expandtab nocindent
+au BufNewFile,BufRead *.dot set ts=2 sts=2 sw=2 expandtab nocindent
+
+set ts=4 sts=4 sw=4
 
 au BufNewFile,BufRead *.md nnoremap <silent> <F6> :!make<CR><CR>
 
@@ -166,4 +203,4 @@ let g:syntastic_cpp_compiler_options = ' -std=c++0x'
 
 nnoremap <S-T> :OnlineThesaurusCurrentWord<CR>
 
-autocmd filetype crontab setlocal nobackup nowritebackup
+" autocmd filetype crontab setlocal nobackup nowritebackup
