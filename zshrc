@@ -12,7 +12,8 @@ source $HOME/.zshrc-local
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="af-magic"
+#ZSH_THEME="af-magic"
+ZSH_THEME="cobalt2"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -39,7 +40,7 @@ alias milka="ssh -Y lcd33@milka.lsc.phy.cam.ac.uk"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 
 if [[ -z $plugins ]]; then
-  plugins=(git osx django virtualenvwrapper pip coding brew heroku)
+  plugins=(git osx django virtualenvwrapper pip coding brew heroku pipenv shrink-path)
 fi
 
 if [[ `uname` == "Linux" ]]; then
@@ -65,3 +66,19 @@ unset SSH_ASKPASS
 alias bbc3="mplayer http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_radio_three.m3u8"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+PATH="/Users/leifdenby/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/Users/leifdenby/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/Users/leifdenby/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/Users/leifdenby/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/leifdenby/perl5"; export PERL_MM_OPT;
+
+# https://cs-syd.eu/posts/2015-06-21-gtd-with-taskwarrior-part-2-collection
+alias in='task add +in'
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/leifdenby/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/leifdenby/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/leifdenby/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/leifdenby/google-cloud-sdk/completion.zsh.inc'; fi
+

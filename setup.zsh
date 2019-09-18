@@ -2,7 +2,7 @@ cd $HOME/.dotfiles
 git submodule init
 git submodule update
 
-for f in "vimrc" "zshrc" "gitconfig" "vim" "oh-my-zsh" "ctags"; do
+for f in "vimrc" "zshrc" "gitconfig" "vim" "oh-my-zsh" "ctags" "taskrc-common"; do
 	if [[ -e "$HOME/.$f" ]] ; then
 		rm "$HOME/.$f"
 	fi
