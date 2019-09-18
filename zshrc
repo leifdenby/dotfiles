@@ -70,6 +70,3 @@ alias in='task add +in'
 alias tadd-work="task add +@work"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# https://cs-syd.eu/posts/2015-06-21-gtd-with-taskwarrior-part-2-collection
-alias in='task add +in'

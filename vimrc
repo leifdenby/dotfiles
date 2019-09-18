@@ -50,7 +50,8 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim', { 'for': 'pandoc' }
 
 Plug 'leifdenby/vim-spellcheck-toggle'
-Plug 'beloglazov/vim-online-thesaurus'
+"Plug 'beloglazov/vim-online-thesaurus'
+Plug 'Ron89/thesaurus_query.vim'
 
 Plug 'matchit.zip'
 
@@ -70,6 +71,7 @@ Plug 'tpope/vim-repeat'
 Plug 'cjrh/vim-conda'
 let g:conda_startup_msg_suppress = 1
 
+Plug 'lervag/vimtex'
 
 Plug 'nathanaelkane/vim-indent-guides'
 let g:indent_guides_enable_on_vim_startup = 1
@@ -149,7 +151,10 @@ set nowrap         " don't wrap lines
 
 au FileType python,php set ts=4 sts=4 sw=4 expandtab nocindent
 
-nnoremap <F6> :OnlineThesaurusCurrentWord<CR>
+let g:tq_map_keys=0
+nnoremap <S-T> :ThesaurusQueryReplaceCurrentWord<CR>
+"nnoremap <S-T> :OnlineThesaurusCurrentWord<CR>
+
 
 set backspace=2
 
@@ -206,7 +211,9 @@ let g:syntastic_python_checkers = []
 let g:syntastic_cpp_compiler_options = ' -std=c++0x'
 
 
-nnoremap <S-T> :OnlineThesaurusCurrentWord<CR>
+"Remove all trailing whitespace by pressing F5
+nnoremap <F7> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+
 
 autocmd filetype crontab setlocal nobackup nowritebackup
 
