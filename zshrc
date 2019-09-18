@@ -12,12 +12,12 @@ source $HOME/.zshrc-local
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="af-magic"
+#ZSH_THEME="af-magic"
+ZSH_THEME="cobalt2"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias milka="ssh -Y lcd33@milka.lsc.phy.cam.ac.uk"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -39,11 +39,12 @@ alias milka="ssh -Y lcd33@milka.lsc.phy.cam.ac.uk"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 
 if [[ -z $plugins ]]; then
-  plugins=(git osx django virtualenvwrapper pip coding brew heroku)
+  plugins=(git osx django virtualenvwrapper pip coding brew heroku pipenv shrink-path)
 fi
 
 if [[ `uname` == "Linux" ]]; then
   alias open='xdg-open'
+  alias open='gio open'
 fi
 
 
@@ -63,6 +64,12 @@ unset SSH_ASKPASS
 # Radio
 
 alias bbc3="mplayer http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_radio_three.m3u8"
+
+# https://cs-syd.eu/posts/2015-06-21-gtd-with-taskwarrior-part-2-collection
+alias in='task add +in'
+alias tadd-work="task add +@work"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # https://cs-syd.eu/posts/2015-06-21-gtd-with-taskwarrior-part-2-collection
 alias in='task add +in'
