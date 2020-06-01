@@ -4,6 +4,8 @@ if [[ $(hostname -f) = mpipc*.mpi.zmaw.de ]]; then
    export FPATH=$LOCALPATH/share/zsh/5.2/functions
 fi
 
+DISABLE_AUTO_UPDATE=true
+
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 source $HOME/.zshrc-local
@@ -23,7 +25,7 @@ ZSH_THEME="cobalt2"
 # CASE_SENSITIVE="true"
 
 # Comment this out to disable weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment following line if you want to disable colors in ls
 # DISABLE_LS_COLORS="true"
@@ -70,3 +72,9 @@ alias in='task add +in'
 alias tadd-work="task add +@work"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+alias td='task lim:10 -BLOCKED'
+td

@@ -53,6 +53,9 @@ Plug 'leifdenby/vim-spellcheck-toggle'
 "Plug 'beloglazov/vim-online-thesaurus'
 Plug 'Ron89/thesaurus_query.vim'
 
+" better yaml support
+Plug 'chase/vim-ansible-yaml'
+
 Plug 'matchit.zip'
 
 Plug 'w0rp/ale'
@@ -71,13 +74,26 @@ Plug 'tpope/vim-repeat'
 Plug 'cjrh/vim-conda'
 let g:conda_startup_msg_suppress = 1
 
-Plug 'lervag/vimtex'
+Plug 'lervag/vimtex', { 'for': 'latex' }
 
 Plug 'nathanaelkane/vim-indent-guides'
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=8
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=0
+
+Plug 'julialang/julia-vim'
+
+Plug 'nathanaelkane/vim-indent-guides'
+"let g:indent_guides_enable_on_vim_startup = 1
+"let g:indent_guides_auto_colors = 0
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=0
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=8
+
+" for auduino dev:
+Plug 'MaskRay/ccls'
+Plug 'vim-scripts/Arduino-syntax-file'
+Plug 'prabirshrestha/vim-lsp'
 
 call plug#end()
 
@@ -166,6 +182,8 @@ au FileType python set foldmethod=indent
 au BufNewFile,BufRead *.html set ts=2 sts=2 sw=2 expandtab nocindent
 au BufNewFile,BufRead *.css set ts=2 sts=2 sw=2 expandtab nocindent
 
+let tlist_tex_settings = 'latex;l:labels;s:sections;t:subsections;u:subsubsections'
+
 
 au BufNewFile,BufRead *.f90,*.F90 set ts=3 sts=3 sw=3 expandtab nocindent
 au BufNewFile,BufRead *.F90 set ts=3 sts=3 sw=3 expandtab nocindent
@@ -174,6 +192,7 @@ let fortran_do_enddo=1
 
 
 au BufNewFile,BufRead *.yaml set ts=2 sts=2 sw=2 expandtab nocindent
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 au BufNewFile,BufRead *.dot set ts=2 sts=2 sw=2 expandtab nocindent
 au BufNewFile,BufRead *.sh set ts=2 sts=2 sw=2 expandtab nocindent
 
