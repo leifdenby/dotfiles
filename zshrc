@@ -12,7 +12,8 @@ source $HOME/.zshrc-local
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="af-magic"
+#ZSH_THEME="af-magic"
+ZSH_THEME="cobalt2"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -38,7 +39,7 @@ ZSH_THEME="af-magic"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 
 if [[ -z $plugins ]]; then
-  plugins=(git osx django virtualenvwrapper pip coding brew heroku)
+  plugins=(git osx django virtualenvwrapper pip coding brew heroku pipenv shrink-path)
 fi
 
 if [[ `uname` == "Linux" ]]; then
@@ -69,4 +70,3 @@ alias in='task add +in'
 alias tadd-work="task add +@work"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
