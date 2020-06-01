@@ -13,6 +13,8 @@ Plug 'pangloss/vim-javascript'
 Plug 'davidhalter/jedi-vim'
 " disable jedi automatically adding `import` when I am doing `from ...` import statements
 let g:jedi#smart_auto_mappings = 0
+" disable the auto-preview feature
+autocmd FileType python setlocal completeopt-=preview
 
 Plug 'tpope/vim-vinegar'
 "Plug 'django.vim'
@@ -35,7 +37,6 @@ Plug 'majutsushi/tagbar'
 Plug 'alvan/vim-closetag'
 Plug 'pix/git-rebase-helper', { 'for': 'git' }
 Plug 'tpope/vim-surround'
-Plug 'majutsushi/tagbar'
 Plug 'godlygeek/tabular'
 Plug 'easymotion/vim-easymotion'
 
@@ -75,6 +76,8 @@ Plug 'cjrh/vim-conda'
 let g:conda_startup_msg_suppress = 1
 
 Plug 'lervag/vimtex', { 'for': 'latex' }
+" easy working with increments
+Plug 'triglav/vim-visual-increment'
 
 Plug 'nathanaelkane/vim-indent-guides'
 let g:indent_guides_enable_on_vim_startup = 1
@@ -127,7 +130,6 @@ let g:airline#extensions#wordcount#filetypes = '\vnotes|help|markdown|rst|org|te
 
 
 let g:ale_objcpp_clang_options = "-Wall"
-let g:ale_python_flake8_options = '--ignore=E302,E226,E231'
 
 " Config closetag
 let g:closetag_filenames = "*.jsx,*.html"
