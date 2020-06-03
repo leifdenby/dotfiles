@@ -5,6 +5,7 @@ if [[ $(hostname -f) = mpipc*.mpi.zmaw.de ]]; then
 fi
 
 DISABLE_AUTO_UPDATE=true
+export TERM="xterm-256color"
 
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
@@ -14,7 +15,10 @@ source $HOME/.zshrc-local
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-#ZSH_THEME="af-magic"
+# ZSH_THEME="af-magic"
+#ZSH_THEME="powerlevel9k/powerlevel9k"
+#ZSH_THEME="powerlevel10k/powerlevel10k"
+#POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 ZSH_THEME="cobalt2"
 
 # Example aliases
@@ -35,6 +39,11 @@ DISABLE_AUTO_UPDATE="true"
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 # COMPLETION_WAITING_DOTS="true"
+
+prompt_dir() {
+  #prompt_segment blue $CURRENT_FG '%~'
+prompt_segment blue $CURRENT_FG '%2~'
+}
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -72,7 +81,6 @@ alias in='task add +in'
 alias tadd-work="task add +@work"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 

@@ -16,6 +16,7 @@ let g:jedi#smart_auto_mappings = 0
 " disable the auto-preview feature
 autocmd FileType python setlocal completeopt-=preview
 
+Plug 'psf/black', { 'branch': 'stable' }
 Plug 'tpope/vim-vinegar'
 "Plug 'django.vim'
 "Plug 'scrooloose/syntastic' replaced with ALE
@@ -61,10 +62,15 @@ Plug 'matchit.zip'
 
 Plug 'w0rp/ale'
 
+" who uses ncl anymore?
+Plug 'dongli/vim-ncl'
+
 " for markdown writing:
 Plug 'reedes/vim-pencil', { 'for': 'markdown' }
 Plug 'tpope/vim-markdown', { 'for': 'pandoc' }
 Plug 'dhruvasagar/vim-table-mode', { 'for': 'pandoc' }
+
+Plug 'https://github.com/vim-voom/VOoM', { 'for': 'tex' }
 
 " Plug 'blindFS/vim-taskwarrior'
 
@@ -72,8 +78,8 @@ Plug 'dhruvasagar/vim-table-mode', { 'for': 'pandoc' }
 Plug 'tpope/vim-repeat'
 
 " ensure that vim uses the correct python version
-Plug 'cjrh/vim-conda'
-let g:conda_startup_msg_suppress = 1
+" Plug 'cjrh/vim-conda', { 'for': 'python' }
+" let g:conda_startup_msg_suppress = 1
 
 Plug 'lervag/vimtex', { 'for': 'latex' }
 " easy working with increments
@@ -101,6 +107,8 @@ Plug 'prabirshrestha/vim-lsp'
 call plug#end()
 
 let g:limelight_conceal_ctermfg = 240
+
+let g:vimtex_compiler_progname = "~/datastore/a289/anaconda2/envs/tectonic/bin/tectonic"
 
 
 
@@ -233,9 +241,9 @@ let g:syntastic_cpp_compiler_options = ' -std=c++0x'
 
 
 "Remove all trailing whitespace by pressing F5
-nnoremap <F7> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+nnoremap <F8> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
 
-autocmd filetype crontab setlocal nobackup nowritebackup
+"autocmd filetype crontab setlocal nobackup nowritebackup
 
 let g:jedi#smart_auto_mappings = 0
