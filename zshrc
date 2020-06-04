@@ -85,4 +85,5 @@ alias tadd-work="task add +@work"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 alias td='task lim:10 -BLOCKED'
+# get a task summary
 td
