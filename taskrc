@@ -19,3 +19,5 @@ uda.estimate.type=numeric
 uda.estimate.label=Est
 report.next.columns=               id,start.age,entry.age,depends,priority,project,tags,recur,scheduled.countdown,due.relative,until.remaining,description,urgency,estimate
 report.next.labels=                ID,Active,Age,Deps,P,Project,Tag,Recur,S,Due,Until,Description,Urg,Est
+
+include ~/.dotfiles/task/solarized-dark-256.theme
