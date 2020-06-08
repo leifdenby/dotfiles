@@ -12,3 +12,5 @@ vim +PlugInstall +qall # installs fzf
 
 wget https://raw.githubusercontent.com/wesbos/Cobalt2-iterm/master/cobalt2.zsh-theme oh-my-zsh/themes/
 ln -s $HOME/.dotfiles/gdbinit/gdbinit $HOME/.gdbinit
+
+ln -s $HOME/.dotifles/hammerspoon $HOME/.hammerspoon
