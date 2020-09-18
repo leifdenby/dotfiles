@@ -8,6 +8,7 @@ Plug 'bling/vim-airline'
 Plug 'altercation/vim-colors-solarized'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-unimpaired'
 Plug 'pangloss/vim-javascript'
 
 Plug 'davidhalter/jedi-vim'
@@ -60,6 +61,8 @@ Plug 'chase/vim-ansible-yaml'
 
 Plug 'matchit.zip'
 
+" Syntax highlighting and linting
+let g:ale_completion_enabled = 1
 Plug 'w0rp/ale'
 
 " who uses ncl anymore?
@@ -71,6 +74,12 @@ Plug 'tpope/vim-markdown', { 'for': 'pandoc' }
 Plug 'dhruvasagar/vim-table-mode', { 'for': 'pandoc' }
 
 Plug 'https://github.com/vim-voom/VOoM', { 'for': 'tex' }
+
+" Julia
+Plug 'JuliaEditorSupport/julia-vim'
+autocmd FileType julia setlocal shiftwidth=4 foldmethod=indent tabstop=4 softtabstop=4
+au BufNewFile,BufRead *.jl set ts=4 sts=4 sw=4 foldmethod=indent
+Plug 'prabirshrestha/asyncomplete.vim', { 'for': 'julia' }
 
 " Plug 'blindFS/vim-taskwarrior'
 
@@ -91,8 +100,6 @@ let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=8
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=0
 
-Plug 'julialang/julia-vim'
-
 Plug 'nathanaelkane/vim-indent-guides'
 "let g:indent_guides_enable_on_vim_startup = 1
 "let g:indent_guides_auto_colors = 0
@@ -102,7 +109,12 @@ Plug 'nathanaelkane/vim-indent-guides'
 " for auduino dev:
 Plug 'MaskRay/ccls'
 Plug 'vim-scripts/Arduino-syntax-file'
+
+" autocomplete
 Plug 'prabirshrestha/vim-lsp'
+"let g:lsp_log_verbose = 1
+"let g:lsp_log_file = expand('~/vim-lsp.log')
+"let g:asyncomplete_log_file = expand('~/asyncomplete.log')
 
 call plug#end()
 
@@ -138,6 +150,10 @@ let g:airline#extensions#wordcount#filetypes = '\vnotes|help|markdown|rst|org|te
 
 
 let g:ale_objcpp_clang_options = "-Wall"
+" easy navigation through errors reported by ALE, https://vi.stackexchange.com/a/14307
+nmap <silent> <leader>aj :ALENext<cr>
+nmap <silent> <leader>ak :ALEPrevious<cr>
+
 
 " Config closetag
 let g:closetag_filenames = "*.jsx,*.html"
