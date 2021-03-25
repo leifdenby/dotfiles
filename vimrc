@@ -122,6 +122,10 @@ let g:limelight_conceal_ctermfg = 240
 
 let g:vimtex_compiler_progname = "~/datastore/a289/anaconda2/envs/tectonic/bin/tectonic"
 
+" trying to deal with weird terminal symbols
+" https://stackoverflow.com/a/62150215
+let &t_TI = ""
+let &t_TE = ""
 
 
 " fzf settings
