@@ -7,19 +7,19 @@ fi
 DISABLE_AUTO_UPDATE=true
 export TERM="xterm-256color"
 
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
-source $HOME/.zshrc-local
-
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-# ZSH_THEME="af-magic"
+#ZSH_THEME="af-magic"
 #ZSH_THEME="powerlevel9k/powerlevel9k"
 #ZSH_THEME="powerlevel10k/powerlevel10k"
 #POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 ZSH_THEME="cobalt2"
+
+# Path to your oh-my-zsh configuration.
+ZSH=$HOME/.oh-my-zsh
+source $HOME/.zshrc-local
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -112,6 +112,6 @@ function task_indicator {
         printf "%b" "\u$OK"
     fi
 }
-task="\$(task_indicator)"
-addprompt=$task
-PROMPT="$addprompt $PROMPT"
+#task="\$(task_indicator)"
+#addprompt=$task
+#PROMPT="$addprompt $PROMPT"

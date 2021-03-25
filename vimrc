@@ -80,6 +80,11 @@ Plug 'JuliaEditorSupport/julia-vim'
 autocmd FileType julia setlocal shiftwidth=4 foldmethod=indent tabstop=4 softtabstop=4
 au BufNewFile,BufRead *.jl set ts=4 sts=4 sw=4 foldmethod=indent
 Plug 'prabirshrestha/asyncomplete.vim', { 'for': 'julia' }
+Plug 'kdheepak/JuliaFormatter.vim', { 'for': 'julia' }
+" normal mode mapping
+nnoremap <localleader>jf :JuliaFormatterFormat<CR>
+" visual mode mapping
+vnoremap <localleader>jf :JuliaFormatterFormat<CR>
 
 " Plug 'blindFS/vim-taskwarrior'
 
