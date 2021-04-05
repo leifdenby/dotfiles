@@ -50,7 +50,7 @@ prompt_segment blue $CURRENT_FG '%2~'
 # Example format: plugins=(rails git textmate ruby lighthouse)
 
 if [[ -z $plugins ]]; then
-  plugins=(git osx django virtualenvwrapper pip coding brew heroku pipenv shrink-path)
+  plugins=(git osx django pip coding brew heroku pipenv shrink-path)
 fi
 
 if [[ `uname` == "Linux" ]]; then
