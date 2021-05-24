@@ -4,16 +4,22 @@ if [[ $(hostname -f) = mpipc*.mpi.zmaw.de ]]; then
    export FPATH=$LOCALPATH/share/zsh/5.2/functions
 fi
 
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
-source $HOME/.zshrc-local
+DISABLE_AUTO_UPDATE=true
+export TERM="xterm-256color"
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 #ZSH_THEME="af-magic"
+#ZSH_THEME="powerlevel9k/powerlevel9k"
+#ZSH_THEME="powerlevel10k/powerlevel10k"
+#POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 ZSH_THEME="cobalt2"
+
+# Path to your oh-my-zsh configuration.
+ZSH=$HOME/.oh-my-zsh
+source $HOME/.zshrc-local
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -23,7 +29,7 @@ ZSH_THEME="cobalt2"
 # CASE_SENSITIVE="true"
 
 # Comment this out to disable weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment following line if you want to disable colors in ls
 # DISABLE_LS_COLORS="true"
@@ -34,12 +40,17 @@ ZSH_THEME="cobalt2"
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 # COMPLETION_WAITING_DOTS="true"
 
+prompt_dir() {
+  #prompt_segment blue $CURRENT_FG '%~'
+prompt_segment blue $CURRENT_FG '%2~'
+}
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 
 if [[ -z $plugins ]]; then
-  plugins=(git osx django virtualenvwrapper pip coding brew heroku pipenv shrink-path)
+  plugins=(git osx django pip coding brew heroku pipenv shrink-path)
 fi
 
 if [[ `uname` == "Linux" ]]; then
@@ -70,3 +81,37 @@ alias in='task add +in'
 alias tadd-work="task add +@work"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+alias td='task lim:10 -BLOCKED'
+# get a task summary
+td
+
+# add Taskwarrior
+# TASK WARRIOR INTO MY PROMPT
+# this part is just fun-with-utf8
+# https://twitter.com/pjf/status/852466839145795584
+URGENT="2757"
+DUETOMORROW="2690"
+DUETODAY="2691"
+OVERDUE="2639"
+OK="2714"
+
+# shows if any TaskWarrior tasks are in need of attention
+function task_indicator {
+    if [ `task +READY +OVERDUE count` -gt "0" ]  ; then
+        printf "%b" "\u$OVERDUE"
+    elif [ `task +READY +DUETODAY count` -gt "0" ]  ; then
+        printf "%b" "\u$DUETODAY"
+    elif [ `task +READY +DUETomorrow count` -gt "0" ]  ; then
+        printf "%b" "\u$DUETOMORROW"
+    elif [ `task +READY urgency \> 10 count` -gt "0" ]  ; then
+        printf "%b" "\u$URGENT"
+    else
+        printf "%b" "\u$OK"
+    fi
+}
+#task="\$(task_indicator)"
+#addprompt=$task
+#PROMPT="$addprompt $PROMPT"

@@ -8,12 +8,16 @@ Plug 'bling/vim-airline'
 Plug 'altercation/vim-colors-solarized'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-unimpaired'
 Plug 'pangloss/vim-javascript'
 
 Plug 'davidhalter/jedi-vim'
 " disable jedi automatically adding `import` when I am doing `from ...` import statements
 let g:jedi#smart_auto_mappings = 0
+" disable the auto-preview feature
+autocmd FileType python setlocal completeopt-=preview
 
+Plug 'psf/black', { 'branch': 'stable' }
 Plug 'tpope/vim-vinegar'
 "Plug 'django.vim'
 "Plug 'scrooloose/syntastic' replaced with ALE
@@ -35,7 +39,6 @@ Plug 'majutsushi/tagbar'
 Plug 'alvan/vim-closetag'
 Plug 'pix/git-rebase-helper', { 'for': 'git' }
 Plug 'tpope/vim-surround'
-Plug 'majutsushi/tagbar'
 Plug 'godlygeek/tabular'
 Plug 'easymotion/vim-easymotion'
 
@@ -53,14 +56,35 @@ Plug 'leifdenby/vim-spellcheck-toggle'
 "Plug 'beloglazov/vim-online-thesaurus'
 Plug 'Ron89/thesaurus_query.vim'
 
+" better yaml support
+Plug 'chase/vim-ansible-yaml'
+
 Plug 'matchit.zip'
 
+" Syntax highlighting and linting
+let g:ale_completion_enabled = 1
 Plug 'w0rp/ale'
+
+" who uses ncl anymore?
+Plug 'dongli/vim-ncl'
 
 " for markdown writing:
 Plug 'reedes/vim-pencil', { 'for': 'markdown' }
 Plug 'tpope/vim-markdown', { 'for': 'pandoc' }
 Plug 'dhruvasagar/vim-table-mode', { 'for': 'pandoc' }
+
+Plug 'https://github.com/vim-voom/VOoM', { 'for': 'tex' }
+
+" Julia
+Plug 'JuliaEditorSupport/julia-vim'
+autocmd FileType julia setlocal shiftwidth=4 foldmethod=indent tabstop=4 softtabstop=4
+au BufNewFile,BufRead *.jl set ts=4 sts=4 sw=4 foldmethod=indent
+Plug 'prabirshrestha/asyncomplete.vim', { 'for': 'julia' }
+Plug 'kdheepak/JuliaFormatter.vim', { 'for': 'julia' }
+" normal mode mapping
+nnoremap <localleader>jf :JuliaFormatterFormat<CR>
+" visual mode mapping
+vnoremap <localleader>jf :JuliaFormatterFormat<CR>
 
 " Plug 'blindFS/vim-taskwarrior'
 
@@ -68,10 +92,12 @@ Plug 'dhruvasagar/vim-table-mode', { 'for': 'pandoc' }
 Plug 'tpope/vim-repeat'
 
 " ensure that vim uses the correct python version
-"Plug 'cjrh/vim-conda'
-"let g:conda_startup_msg_suppress = 1
+" Plug 'cjrh/vim-conda', { 'for': 'python' }
+" let g:conda_startup_msg_suppress = 1
 
-Plug 'lervag/vimtex'
+Plug 'lervag/vimtex', { 'for': 'latex' }
+" easy working with increments
+Plug 'triglav/vim-visual-increment'
 
 Plug 'nathanaelkane/vim-indent-guides'
 let g:indent_guides_enable_on_vim_startup = 1
@@ -79,10 +105,32 @@ let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=8
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=0
 
+Plug 'nathanaelkane/vim-indent-guides'
+"let g:indent_guides_enable_on_vim_startup = 1
+"let g:indent_guides_auto_colors = 0
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=0
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=8
+
+" for auduino dev:
+Plug 'MaskRay/ccls'
+Plug 'vim-scripts/Arduino-syntax-file'
+
+" autocomplete
+Plug 'prabirshrestha/vim-lsp'
+"let g:lsp_log_verbose = 1
+"let g:lsp_log_file = expand('~/vim-lsp.log')
+"let g:asyncomplete_log_file = expand('~/asyncomplete.log')
+
 call plug#end()
 
 let g:limelight_conceal_ctermfg = 240
 
+let g:vimtex_compiler_progname = "~/datastore/a289/anaconda2/envs/tectonic/bin/tectonic"
+
+" trying to deal with weird terminal symbols
+" https://stackoverflow.com/a/62150215
+let &t_TI = ""
+let &t_TE = ""
 
 
 " fzf settings
@@ -111,7 +159,10 @@ let g:airline#extensions#wordcount#filetypes = '\vnotes|help|markdown|rst|org|te
 
 
 let g:ale_objcpp_clang_options = "-Wall"
-let g:ale_python_flake8_options = '--ignore=E302,E226,E231'
+" easy navigation through errors reported by ALE, https://vi.stackexchange.com/a/14307
+nmap <silent> <leader>aj :ALENext<cr>
+nmap <silent> <leader>ak :ALEPrevious<cr>
+
 
 " Config closetag
 let g:closetag_filenames = "*.jsx,*.html"
@@ -166,6 +217,8 @@ au FileType python set foldmethod=indent
 au BufNewFile,BufRead *.html set ts=2 sts=2 sw=2 expandtab nocindent
 au BufNewFile,BufRead *.css set ts=2 sts=2 sw=2 expandtab nocindent
 
+let tlist_tex_settings = 'latex;l:labels;s:sections;t:subsections;u:subsubsections'
+
 
 au BufNewFile,BufRead *.f90,*.F90 set ts=3 sts=3 sw=3 expandtab nocindent
 au BufNewFile,BufRead *.F90 set ts=3 sts=3 sw=3 expandtab nocindent
@@ -174,6 +227,7 @@ let fortran_do_enddo=1
 
 
 au BufNewFile,BufRead *.yaml set ts=2 sts=2 sw=2 expandtab nocindent
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 au BufNewFile,BufRead *.dot set ts=2 sts=2 sw=2 expandtab nocindent
 au BufNewFile,BufRead *.sh set ts=2 sts=2 sw=2 expandtab nocindent
 
@@ -212,9 +266,9 @@ let g:syntastic_cpp_compiler_options = ' -std=c++0x'
 
 
 "Remove all trailing whitespace by pressing F5
-nnoremap <F7> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+nnoremap <F8> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
 
-autocmd filetype crontab setlocal nobackup nowritebackup
+"autocmd filetype crontab setlocal nobackup nowritebackup
 
 let g:jedi#smart_auto_mappings = 0
