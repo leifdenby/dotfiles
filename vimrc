@@ -68,8 +68,8 @@ Plug 'dhruvasagar/vim-table-mode', { 'for': 'pandoc' }
 Plug 'tpope/vim-repeat'
 
 " ensure that vim uses the correct python version
-Plug 'cjrh/vim-conda'
-let g:conda_startup_msg_suppress = 1
+"Plug 'cjrh/vim-conda'
+"let g:conda_startup_msg_suppress = 1
 
 Plug 'lervag/vimtex'
 
