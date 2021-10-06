@@ -88,6 +88,7 @@ alias td='task ls lim:10 -BLOCKED'
 # get a task summary
 td
 
+export PATH="$HOME/.local/bin:$PATH"
 if [ -x "`which nvim`" ] ; then
   alias vim=nvim
 fi

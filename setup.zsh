@@ -1,8 +1,10 @@
 if [[ ! -e "`which nvim`" ]]; then
   if [[ `uname` == "Linux" ]]; then
     mkdir -p $HOME/tools/ && cd $HOME/tools/
-    wget https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.tar.gz
-    tar zxvf nvim-linux64.tar.gz
+    wget https://github.com/neovim/neovim/releases/download/v0.5.1/nvim.appimage
+    chmod +x nvim.appimage
+    ln -s $HOME/tools/nvim.appimage $HOME/.local/bin/nvim
+    export PATH="$HOME/.local/bin/:$PATH"
   else
     brew install neovim
   fi
@@ -35,7 +37,7 @@ for f in "config/nvim" "zshrc"; do
   fi
   ln -s $HOME/.dotfiles/$f $HOME/.$f
 done
-vim +PlugInstall +qall # installs fzf
+nvim +PlugInstall +qall # installs fzf
 
 sh -c 'curl -fLo oh-my-zsh/themes/cobalt2.zsh-theme --create-dirs \
        https://raw.githubusercontent.com/wesbos/Cobalt2-iterm/master/cobalt2.zsh-theme'
