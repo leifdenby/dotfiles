@@ -1,4 +1,6 @@
-call plug#begin('~/.vim/plugged')
+let g:python3_host_prog=$CONDA_PYTHON_EXE
+
+call plug#begin('~/.local/share/nvim/plugged')
 
 "Plug 'kien/ctrlp.vim' replaced by fzf
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -17,12 +19,12 @@ let g:jedi#smart_auto_mappings = 0
 " disable the auto-preview feature
 autocmd FileType python setlocal completeopt-=preview
 
-Plug 'psf/black', { 'branch': 'stable' }
+Plug 'psf/black', { 'branch': 'stable', 'for': 'python' }
 Plug 'tpope/vim-vinegar'
 "Plug 'django.vim'
 "Plug 'scrooloose/syntastic' replaced with ALE
 Plug 'hdima/python-syntax'
-Plug 'python_fold'
+Plug 'vim-scripts/python_fold'
 Plug 'tpope/vim-surround'
 Plug 'Raimondi/delimitMate'
 Plug 'mxw/vim-jsx'
@@ -30,7 +32,7 @@ Plug 'sukima/xmledit'
 Plug 'othree/html5.vim'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'JulesWang/css.vim'
-Plug 'terryma/vim-multiple-cursors'
+Plug 'mg979/vim-visual-multi'
 
 Plug 'gregsexton/MatchTag'
 Plug 'rstacruz/sparkup'
@@ -59,7 +61,7 @@ Plug 'Ron89/thesaurus_query.vim'
 " better yaml support
 Plug 'chase/vim-ansible-yaml'
 
-Plug 'matchit.zip'
+Plug 'vim-scripts/matchit.zip'
 
 " Syntax highlighting and linting
 let g:ale_completion_enabled = 1
@@ -90,10 +92,6 @@ vnoremap <localleader>jf :JuliaFormatterFormat<CR>
 
 " repeating mapped commands like surround
 Plug 'tpope/vim-repeat'
-
-" ensure that vim uses the correct python version
-" Plug 'cjrh/vim-conda', { 'for': 'python' }
-" let g:conda_startup_msg_suppress = 1
 
 Plug 'lervag/vimtex', { 'for': 'latex' }
 " easy working with increments
