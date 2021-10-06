@@ -18,8 +18,7 @@ git submodule update
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
-#for f in "config/nvim" "zshrc" "gitconfig" "vim" "oh-my-zsh" "ctags" "taskrc"; do
-for f in "config/nvim" "zshrc"; do
+for f in "tmux.conf" "config/nvim" "zshrc" "gitconfig" "vim" "oh-my-zsh" "ctags" "taskrc"; do
   if [[ -e "$HOME/.$f" ]] ; then
     if [[ -h "$HOME/.$f" ]] ; then
       # is symlink, skip
