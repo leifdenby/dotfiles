@@ -18,13 +18,15 @@ Plug 'davidhalter/jedi-vim'
 let g:jedi#smart_auto_mappings = 0
 " disable the auto-preview feature
 autocmd FileType python setlocal completeopt-=preview
-
 Plug 'psf/black', { 'branch': 'stable', 'for': 'python' }
+Plug 'hdima/python-syntax'
+Plug 'vim-scripts/python_fold'
+Plug 'fisadev/vim-isort'
+
 Plug 'tpope/vim-vinegar'
 "Plug 'django.vim'
 "Plug 'scrooloose/syntastic' replaced with ALE
-Plug 'hdima/python-syntax'
-Plug 'vim-scripts/python_fold'
+
 Plug 'tpope/vim-surround'
 Plug 'Raimondi/delimitMate'
 Plug 'mxw/vim-jsx'
