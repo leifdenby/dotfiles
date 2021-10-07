@@ -116,10 +116,13 @@ Plug 'MaskRay/ccls'
 Plug 'vim-scripts/Arduino-syntax-file'
 
 " autocomplete
-Plug 'prabirshrestha/vim-lsp'
+"Plug 'prabirshrestha/vim-lsp'
 "let g:lsp_log_verbose = 1
 "let g:lsp_log_file = expand('~/vim-lsp.log')
 "let g:asyncomplete_log_file = expand('~/asyncomplete.log')
+
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+let g:deoplete#enable_at_startup = 1
 
 call plug#end()
 
@@ -271,4 +274,9 @@ nnoremap <F8> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
 "autocmd filetype crontab setlocal nobackup nowritebackup
 
-let g:jedi#smart_auto_mappings = 0
+
+"" vim-jedi config
+" disable autocompletion, because we use deoplete for completion
+let g:jedi#completions_enabled = 0
+" open the go-to function in split, not another buffer
+let g:jedi#use_splits_not_buffers = "right"
