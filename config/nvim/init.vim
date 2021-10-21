@@ -123,6 +123,7 @@ Plug 'vim-scripts/Arduino-syntax-file'
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 let g:deoplete#enable_at_startup = 1
+Plug 'zchee/deoplete-jedi'
 
 call plug#end()
 
