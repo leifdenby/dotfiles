@@ -73,7 +73,6 @@ Plug 'w0rp/ale'
 Plug 'dongli/vim-ncl'
 
 " for markdown writing:
-Plug 'reedes/vim-pencil', { 'for': 'markdown' }
 Plug 'tpope/vim-markdown', { 'for': 'pandoc' }
 Plug 'dhruvasagar/vim-table-mode', { 'for': 'pandoc' }
 
@@ -257,11 +256,6 @@ let g:tagbar_left=1
 
 
 au BufNewFile,BufRead *.md set filetype=markdown
-
-augroup pencil
-  autocmd!
-  autocmd FileType markdown,mkd,md call pencil#init({'wrap': 'hard'})
-augroup END
 
 let g:syntastic_python_checkers = []
 
