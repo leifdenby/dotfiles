@@ -3,8 +3,6 @@ data.location=~/.task
 
 # https://cs-syd.eu/posts/2015-06-21-gtd-with-taskwarrior-part-2-collection
 
-include ~/.taskrc-local
-
 report.in.columns           = id,description
 report.in.description       = Inbox
 report.in.filter            = status:pending limit:page (+in)
@@ -15,13 +13,13 @@ context.agora=-@work -@home
 context.home=+@home
 urgency.user.tag.in.coefficient=15.0
 urgency.active.coefficient=50.0
+urgency.blocking.coefficient=4.0
 
-urgency.inherit=on
+urgency.inherit=off
 
 uda.estimate.type=numeric
 uda.estimate.label=Est
-report.next.columns=               id,start.age,entry.age,depends,priority,project,tags,recur,scheduled.countdown,due.relative,until.remaining,description,urgency,estimate
-report.next.labels=                ID,Active,Age,Deps,P,Project,Tag,Recur,S,Due,Until,Description,Urg,Est
+report.next.columns=               id,description.count,start.age,entry.age,depends,priority,project,tags,recur,scheduled.countdown,due.relative,until.remaining
+report.next.labels=                ID,Description,Active,Age,Deps,P,Project,Tag,Recur,S,Due,Until
 
 include ~/.dotfiles/task/solarized-dark-256.theme
-context=work

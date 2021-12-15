@@ -18,7 +18,7 @@ git submodule update
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
-for f in "tmux.conf" "config/nvim" "zshrc" "gitconfig" "vim" "oh-my-zsh" "ctags" "taskrc"; do
+for f in "tmux.conf" "config/nvim" "zshrc" "gitconfig" "vim" "oh-my-zsh" "ctags"; do
   if [[ -e "$HOME/.$f" ]] ; then
     if [[ -h "$HOME/.$f" ]] ; then
       # is symlink, skip
@@ -41,6 +41,9 @@ nvim +PlugInstall +qall # installs fzf
 sh -c 'curl -fLo oh-my-zsh/themes/cobalt2.zsh-theme --create-dirs \
        https://raw.githubusercontent.com/wesbos/Cobalt2-iterm/master/cobalt2.zsh-theme'
 
+if [[ ! -e "$HOME/.taskrc" ]] ; then
+  echo "include ~/.dotfiles/taskrc_common" > "$HOME/.taskrc"
+fi
+
 # ensure local files exist
 touch ~/.zshrc-local
-touch ~/.taskrc-local
