@@ -5,7 +5,7 @@ data.location=~/.task
 
 report.in.columns           = id,description
 report.in.description       = Inbox
-report.in.filter            = status:pending limit:page (+in)
+report.in.filter            = status:pending limit:page (+in) -WAITING
 report.in.labels            = ID,Description
 
 context.work=-@agora.social -@agora.health -@home
