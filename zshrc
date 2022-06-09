@@ -86,7 +86,7 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 alias td='task next lim:10 -BLOCKED'
 # get a task summary
-td
+[ -f task ] && td
 
 export PATH="$HOME/.local/bin:$PATH"
 if [ -x "`which nvim`" ] ; then
