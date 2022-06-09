@@ -61,7 +61,7 @@ color.recurring=color4
 color.scheduled=
 color.until=
 color.blocked=yellow
-color.blocking=color2
+color.blocking=cyan
 
 # Project
 color.project.none=

@@ -1,3 +1,7 @@
+source $HOME/.dotfiles/antigen.zsh
+antigen use oh-my-zsh
+antigen bundle esc/conda-zsh-completion
+antigen apply
 
 # needed at MPI because their version of zsh sucks
 if [[ $(hostname -f) = mpipc*.mpi.zmaw.de ]]; then
@@ -86,7 +90,7 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 alias td='task next lim:10 -BLOCKED'
 # get a task summary
-[ -f task ] && td
+[ -f task ] && task next lim:10 -BLOCKED
 
 export PATH="$HOME/.local/bin:$PATH"
 if [ -x "`which nvim`" ] ; then
