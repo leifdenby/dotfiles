@@ -6,13 +6,14 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
-Plug 'bling/vim-airline'
+"Plug 'bling/vim-airline'
 Plug 'altercation/vim-colors-solarized'
-Plug 'scrooloose/nerdcommenter'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-unimpaired'
-Plug 'pangloss/vim-javascript'
+"Plug 'scrooloose/nerdcommenter'
+"Plug 'tpope/vim-fugitive'
+"Plug 'tpope/vim-unimpaired'
+"Plug 'pangloss/vim-javascript'
 
+" python editing
 Plug 'davidhalter/jedi-vim'
 " disable jedi automatically adding `import` when I am doing `from ...` import statements
 let g:jedi#smart_auto_mappings = 0
@@ -52,9 +53,12 @@ Plug 'junegunn/vim-easy-align'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'reedes/vim-wordy', { 'for': 'pandoc' }
-
 Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim', { 'for': 'pandoc' }
+let g:goyo_width = 82
+let g:limelight_paragraph_span = 1
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
+Plug 'junegunn/limelight.vim', { 'for': ['pandoc', 'tex'] }
 
 Plug 'leifdenby/vim-spellcheck-toggle'
 "Plug 'beloglazov/vim-online-thesaurus'
@@ -76,7 +80,10 @@ Plug 'dongli/vim-ncl'
 Plug 'tpope/vim-markdown', { 'for': 'pandoc' }
 Plug 'dhruvasagar/vim-table-mode', { 'for': 'pandoc' }
 
-Plug 'https://github.com/vim-voom/VOoM', { 'for': 'tex' }
+" latex
+Plug 'vim-voom/VOoM', { 'for': 'tex' }
+Plug 'lervag/vimtex', { 'for': 'tex' }
+let g:vimtex_compiler_method = 'tectonic'
 
 " Julia
 Plug 'JuliaEditorSupport/julia-vim'
@@ -94,7 +101,6 @@ vnoremap <localleader>jf :JuliaFormatterFormat<CR>
 " repeating mapped commands like surround
 Plug 'tpope/vim-repeat'
 
-Plug 'lervag/vimtex', { 'for': 'latex' }
 " easy working with increments
 Plug 'triglav/vim-visual-increment'
 
@@ -132,8 +138,13 @@ let g:vimtex_compiler_progname = "~/datastore/a289/anaconda2/envs/tectonic/bin/t
 
 " trying to deal with weird terminal symbols
 " https://stackoverflow.com/a/62150215
-let &t_TI = ""
-let &t_TE = ""
+" let &t_TI = ""
+" let &t_TE = ""
+
+filetype plugin indent on
+syntax enable
+
+set nocompatible hidden laststatus=2 cursorline
 
 
 " fzf settings
