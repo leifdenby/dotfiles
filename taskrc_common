@@ -12,6 +12,7 @@ context.work=-@agora.social -@agora.health -@home
 context.agora=-@work -@home
 context.home=+@home
 urgency.user.tag.in.coefficient=15.0
+urgency.user.tag.today.coefficient=10.0
 urgency.active.coefficient=50.0
 urgency.blocking.coefficient=4.0
 
