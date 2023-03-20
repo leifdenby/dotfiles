@@ -1,7 +1,7 @@
 if [[ ! -e "`which nvim`" ]]; then
   if [[ `uname` == "Linux" ]]; then
     mkdir -p $HOME/tools/ && cd $HOME/tools/
-    wget https://github.com/neovim/neovim/releases/download/v0.5.1/nvim.appimage
+    wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
     chmod +x nvim.appimage
     ln -s $HOME/tools/nvim.appimage $HOME/.local/bin/nvim
     export PATH="$HOME/.local/bin/:$PATH"
