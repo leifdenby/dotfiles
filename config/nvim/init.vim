@@ -210,7 +210,7 @@ au FileType stylus set ts=2 sts=2 sw=2 expandtab nocindent
 au FileType cpp,c set ts=2 sts=2 sw=2 expandtab nocindent
 
 " hardcopy (print) settings: in landscape with linenumbers
-set printoptions=portrait:n,number:y
+" set printoptions=portrait:n,number:y
 
 set nowrap         " don't wrap lines
 
