@@ -8,7 +8,7 @@ Plug 'junegunn/fzf.vim'
 
 "Plug 'bling/vim-airline'
 Plug 'altercation/vim-colors-solarized'
-"Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdcommenter'
 "Plug 'tpope/vim-fugitive'
 "Plug 'tpope/vim-unimpaired'
 "Plug 'pangloss/vim-javascript'
@@ -22,7 +22,9 @@ autocmd FileType python setlocal completeopt-=preview
 Plug 'psf/black', { 'branch': 'stable', 'for': 'python' }
 Plug 'hdima/python-syntax'
 Plug 'vim-scripts/python_fold'
+if !exists('g:vscode')
 Plug 'fisadev/vim-isort'
+endif
 
 Plug 'tpope/vim-vinegar'
 "Plug 'django.vim'
@@ -126,9 +128,11 @@ Plug 'vim-scripts/Arduino-syntax-file'
 "let g:lsp_log_file = expand('~/vim-lsp.log')
 "let g:asyncomplete_log_file = expand('~/asyncomplete.log')
 
+if !exists('g:vscode')
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 let g:deoplete#enable_at_startup = 1
 Plug 'zchee/deoplete-jedi'
+endif
 
 call plug#end()
 
@@ -264,6 +268,9 @@ inoremap <expr> <C-k> pumvisible() ? "\<C-P>" : "\<C-k>"
 " Tagbar
 nnoremap <silent> <F8> :TagbarToggle<CR>
 let g:tagbar_left=1
+
+" disable mouse
+set mouse=
 
 
 au BufNewFile,BufRead *.md set filetype=markdown
