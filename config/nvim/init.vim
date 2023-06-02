@@ -13,10 +13,13 @@ Plug 'scrooloose/nerdcommenter'
 "Plug 'tpope/vim-unimpaired'
 "Plug 'pangloss/vim-javascript'
 
+if !exists('g:vscode')
 " python editing
 Plug 'davidhalter/jedi-vim'
 " disable jedi automatically adding `import` when I am doing `from ...` import statements
 let g:jedi#smart_auto_mappings = 0
+endif
+
 " disable the auto-preview feature
 autocmd FileType python setlocal completeopt-=preview
 Plug 'psf/black', { 'branch': 'stable', 'for': 'python' }
