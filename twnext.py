@@ -10,12 +10,14 @@ def main(tw_args=[], limit_per_project=1, extra_columns=[]):
 
     tasks_all = []
     for project in projects:
-        tasks = json.loads(
-            subprocess.check_output(
-                ["task", f"project:{project}", "-BLOCKED", "export", f"limit:{limit_per_project}"]
-                + tw_args
-            )
-        )
+        args = [
+            "task",
+            f"project:{project}",
+            "-BLOCKED",
+            f"limit:{limit_per_project}",
+            "export",
+        ] + tw_args
+        tasks = json.loads(subprocess.check_output(args))
         tasks_all += tasks
 
     df = pd.DataFrame(tasks_all).set_index("id")
