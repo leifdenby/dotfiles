@@ -16,6 +16,8 @@ urgency.user.tag.today.coefficient=10.0
 urgency.active.coefficient=50.0
 urgency.blocking.coefficient=4.0
 
+urgency.user.project.dmi.coefficient=3.0
+
 urgency.inherit=off
 
 uda.estimate.type=numeric

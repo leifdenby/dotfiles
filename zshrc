@@ -96,3 +96,17 @@ export PATH="$HOME/.local/bin:$PATH"
 if [ -x "`which nvim`" ] ; then
   alias vim=nvim
 fi
+
+# >>> juliaup initialize >>>
+
+# !! Contents within this block are managed by juliaup !!
+
+path=('/home/lcd/.juliaup/bin' $path)
+export PATH
+
+# <<< juliaup initialize <<<
+
+
+alias collabs="python ~/git-repos/current-collabs/collabs.py"
+alias collabs-edit="vim ~/git-repos/current-collabs/ongoing-collaborations.yml"
+alias twnext="python ~/.dotfiles/twnext.py"
