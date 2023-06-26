@@ -16,16 +16,17 @@ def main(tw_args=[], limit_per_project=1, extra_columns=[]):
     berlin = gettz("Europe/Berlin")
     now = dt.datetime.now(tz=berlin)
 
-    tasks_all = []
+    dfs = []
     for project in projects:
         args = [
             "task",
             f"project:{project}",
             "-BLOCKED",
-            f"limit:{limit_per_project}",
             "export",
         ] + tw_args
         tasks = json.loads(subprocess.check_output(args))
+
+        # print(" ".join(args))
 
         def _parse_due(task):
             if "due" in task:
@@ -33,11 +34,14 @@ def main(tw_args=[], limit_per_project=1, extra_columns=[]):
             return task
 
         tasks = map(_parse_due, tasks)
+        # there's a bug here in "export" so that the filter `-BLOCKED` is ignored
+        tasks = list(filter(lambda task: task["id"] != 0, tasks))
 
-        tasks_all += tasks
+        df_project_tasks = pd.DataFrame(tasks).sort_values(by=["urgency"], ascending=False)
+        dfs.append(df_project_tasks.iloc[0:1])
 
-    df = pd.DataFrame(tasks_all).set_index("id")
-    df = df.sort_values(by=["urgency"], ascending=False)
+    df = pd.concat(dfs).set_index("id").sort_values(by=["urgency"], ascending=False)
+
     print(tabulate.tabulate(df[columns], headers=columns))
 
 
