@@ -2,11 +2,19 @@ import subprocess
 import json
 import pandas as pd
 import tabulate
+import humanize
+import isodate
 
 
 def main(tw_args=[], limit_per_project=1, extra_columns=[]):
     columns = ["project", "description"] + extra_columns
     projects = subprocess.check_output(["task", "_projects"]).decode().splitlines()
+
+    import datetime as dt
+    from dateutil.tz import gettz
+
+    berlin = gettz("Europe/Berlin")
+    now = dt.datetime.now(tz=berlin)
 
     tasks_all = []
     for project in projects:
@@ -18,6 +26,14 @@ def main(tw_args=[], limit_per_project=1, extra_columns=[]):
             "export",
         ] + tw_args
         tasks = json.loads(subprocess.check_output(args))
+
+        def _parse_due(task):
+            if "due" in task:
+                task["due"] = humanize.naturalday(isodate.parse_datetime(task["due"]))
+            return task
+
+        tasks = map(_parse_due, tasks)
+
         tasks_all += tasks
 
     df = pd.DataFrame(tasks_all).set_index("id")
