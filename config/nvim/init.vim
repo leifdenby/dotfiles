@@ -2,16 +2,15 @@ let g:python3_host_prog=$CONDA_PYTHON_EXE
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-"Plug 'kien/ctrlp.vim' replaced by fzf
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
-"Plug 'bling/vim-airline'
+Plug 'bling/vim-airline'
 Plug 'altercation/vim-colors-solarized'
 Plug 'scrooloose/nerdcommenter'
-"Plug 'tpope/vim-fugitive'
-"Plug 'tpope/vim-unimpaired'
-"Plug 'pangloss/vim-javascript'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-unimpaired'
+Plug 'pangloss/vim-javascript'
 
 if !exists('g:vscode')
 " python editing
@@ -27,11 +26,17 @@ Plug 'hdima/python-syntax'
 Plug 'vim-scripts/python_fold'
 if !exists('g:vscode')
 Plug 'fisadev/vim-isort'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-unimpaired'
+Plug 'pangloss/vim-javascript'
 endif
 
 Plug 'tpope/vim-vinegar'
 "Plug 'django.vim'
 "Plug 'scrooloose/syntastic' replaced with ALE
+
+" c++
+Plug 'rhysd/vim-clang-format'
 
 Plug 'tpope/vim-surround'
 Plug 'Raimondi/delimitMate'
@@ -63,7 +68,7 @@ let g:goyo_width = 82
 let g:limelight_paragraph_span = 1
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
-Plug 'junegunn/limelight.vim', { 'for': ['pandoc', 'tex'] }
+Plug 'junegunn/limelight.vim', { 'for': ['pandoc', 'tex', 'markdown'] }
 
 Plug 'leifdenby/vim-spellcheck-toggle'
 "Plug 'beloglazov/vim-online-thesaurus'
@@ -112,8 +117,13 @@ Plug 'triglav/vim-visual-increment'
 Plug 'nathanaelkane/vim-indent-guides'
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=8   ctermbg=8
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=0 ctermbg=0
+if exists('g:vscode')
+  " VSCode extension
+else
+  " ordinary Neovim
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=8
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=0
+endif
 
 Plug 'nathanaelkane/vim-indent-guides'
 "let g:indent_guides_enable_on_vim_startup = 1
@@ -147,6 +157,11 @@ let g:vimtex_compiler_progname = "~/datastore/a289/anaconda2/envs/tectonic/bin/t
 " https://stackoverflow.com/a/62150215
 " let &t_TI = ""
 " let &t_TE = ""
+
+" clang-format
+" map to <Leader>cf in C++ code
+autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
+autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
 
 filetype plugin indent on
 syntax enable

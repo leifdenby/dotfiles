@@ -78,7 +78,7 @@ unset SSH_ASKPASS
 
 # Radio
 
-alias bbc3="mplayer http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_radio_three.m3u8"
+alias bbc-radio4="mplayer http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_med/ak/bbc_radio_fourfm.m3u8"
 
 # https://cs-syd.eu/posts/2015-06-21-gtd-with-taskwarrior-part-2-collection
 alias in='task add +in'
@@ -97,10 +97,30 @@ if [ -x "`which nvim`" ] ; then
   alias vim=nvim
 fi
 
+<<<<<<< Updated upstream
+=======
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/leif/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/leif/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/leif/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/leif/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+
+>>>>>>> Stashed changes
 # >>> juliaup initialize >>>
 
 # !! Contents within this block are managed by juliaup !!
 
+<<<<<<< Updated upstream
 path=('/home/lcd/.juliaup/bin' $path)
 export PATH
 
@@ -110,3 +130,9 @@ export PATH
 alias collabs="python ~/git-repos/current-collabs/collabs.py"
 alias collabs-edit="vim ~/git-repos/current-collabs/ongoing-collaborations.yml"
 alias twnext="python ~/.dotfiles/twnext.py"
+=======
+path=('/home/leif/.juliaup/bin' $path)
+export PATH
+
+# <<< juliaup initialize <<<
+>>>>>>> Stashed changes

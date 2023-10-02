@@ -4,6 +4,7 @@
 	editor = vim
 [user]
 	email = leif@denby.eu
+	name = Leif Denby
 [credential]
 	helper = cache --timeout=3600
 [filter "hawser"]
@@ -21,3 +22,9 @@
 	tool = meld
 [alias]
 	meld = !git difftool -t meld --dir-diff
+[credential "https://github.com"]
+	helper = 
+	helper = !/home/leif/miniconda3/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/home/leif/miniconda3/bin/gh auth git-credential
