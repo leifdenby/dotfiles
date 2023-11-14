@@ -22,7 +22,10 @@ urgency.inherit=off
 
 uda.estimate.type=numeric
 uda.estimate.label=Est
-report.next.columns=               id,description.count,start.age,entry.age,depends,priority,project,tags,recur,scheduled.countdown,due.relative,until.remaining
-report.next.labels=                ID,Description,Active,Age,Deps,P,Project,Tag,Recur,S,Due,Until
+report.next.columns=               id,description.count,start.age,entry.age,depends,priority,project,contact,tags,recur,scheduled.countdown,due.relative,until.remaining
+report.next.labels=                ID,Description,Active,Age,Deps,P,Project,Contact,Tag,Recur,S,Due,Until
 
 include ~/.dotfiles/task/solarized-dark-256.theme
+
+uda.contact.type=string
+uda.contact.label=Contact
